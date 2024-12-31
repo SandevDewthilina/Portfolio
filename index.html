@@ -2,178 +2,219 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sandev Dewthilina</title>
-    <!-- Latest compiled and minified CSS -->
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    />
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!-- Popper JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="./css/main.css" />
+    <title>Portfolio Shell</title>
+    <style>
+      ::-webkit-scrollbar {
+        width: 5px; /* Width of the scrollbar */
+      }
+
+      /* Style the thumb (the draggable part) */
+      ::-webkit-scrollbar-thumb {
+        background-color: #37d73c; /* Green color for the thumb */
+        border-radius: 3px; /* Rounded corners */
+      }
+
+      /* Style the track (the area the thumb slides within) */
+      ::-webkit-scrollbar-track {
+        background-color: #000000; /* Light gray color for the track */
+        border-radius: 3px;
+      }
+
+      /* For hover effect on the scrollbar thumb */
+      ::-webkit-scrollbar-thumb:hover {
+        background-color: #37d73c; /* Darker green when hovered */
+      }
+      body {
+        background-color: #1e1e1e;
+        color: #00ff00;
+        font-family: monospace;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .terminal {
+        width: 80%;
+        max-width: 80%;
+        max-height: 80%;
+        background: #000;
+        border-radius: 8px;
+        box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+        padding: 20px;
+        overflow-y: scroll;
+      }
+      .terminal-header {
+        display: flex;
+        justify-content: flex-start;
+        gap: 5px;
+        margin-bottom: 15px;
+      }
+      .terminal-header div {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+      }
+      .terminal-header .red {
+        background: #ff605c;
+      }
+      .terminal-header .yellow {
+        background: #ffbd44;
+      }
+      .terminal-header .green {
+        background: #00ca4e;
+      }
+      .terminal-body {
+        overflow-y: auto;
+        height: 80%;
+      }
+      .terminal-body p {
+        margin: 5px 0;
+      }
+      .command {
+        color: #fff;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 10px 0;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid #00ff00;
+      }
+      th,
+      td {
+        padding: 8px;
+        text-align: left;
+      }
+      @keyframes typing {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+      @keyframes blink {
+        50% {
+          border-color: transparent;
+        }
+      }
+      .typing p {
+        display: inline-block;
+        overflow: hidden;
+        white-space: nowrap;
+        border-right: 2px solid #00ff00;
+        width: 0;
+        animation: typing 10s steps(40, end), blink 0.5s step-end infinite;
+      }
+      a {
+        color: #00ff00;
+      }
+    </style>
   </head>
   <body>
-    <div class="container-fluid main_container">
-      <div class="row pt-5">
-        <div class="col-sm-12 col-lg-5">
-          <h1 class="name pb-2">Sandev Dewthilina</h1>
-          <h3 class="subname pb-4">Co-founder, CEO of ECODE IT</h3>
-          <p class="paragraph_main pt-4">
-            I mostly build <b class="text-white">enterprise solutions</b> that
-            helps companies to grow rapidly and easily. With more than
-            <b class="text-white">4+ years</b> experience in IT & Software
-            Industry. I usually work as a
-            <b class="text-white">Full Stack Developer.</b> Currently Study at
-            University of Moratuwa in Department of Computer Science &
-            Engineering.
-          </p>
-          <div class="btn cvbtn mb-5">Open CV</div>
-          <div
-            class="subfooter d-flex flex-row align-items-center justify-content-around"
-          >
-            <div class="p-2 mr-1">
-              <img
-                src="./assets/profile.png"
-                class="profile_image"
-                alt="Profile Image"
-              />
-            </div>
-            <div class="p-2">
-              <a href="#" style="color: white"
-                ><img
-                  src="./assets/github.svg"
-                  class="mr-2"
-                  style="height: 20px; width: 20px" />GitHub<img
-                  src="./assets/link.svg"
-                  class="ml-2"
-                  style="height: 13px; width: 13px"
-              /></a>
-            </div>
-            <div class="p-2">
-              <a href="#" style="color: white"
-                ><img
-                  src="./assets/linkedin.svg"
-                  class="mr-2"
-                  style="height: 20px; width: 20px" />Linkedin<img
-                  src="./assets/link.svg"
-                  class="ml-2"
-                  style="height: 13px; width: 13px"
-              /></a>
-            </div>
-            <div class="p-2">
-              <a href="#" style="color: white"
-                ><img
-                  src="./assets/twitter.svg"
-                  class="mr-2"
-                  style="height: 20px; width: 20px" />Twitter<img
-                  src="./assets/link.svg"
-                  class="ml-2"
-                  style="height: 13px; width: 13px"
-              /></a>
-            </div>
-          </div>
+    <div class="terminal">
+      <div class="terminal-header">
+        <div class="red"></div>
+        <div class="yellow"></div>
+        <div class="green"></div>
+      </div>
+      <div class="terminal-body">
+        <div class="typing">
+          <p>Welcome to Sandev's Portfolio Shell!</p>
         </div>
-        <div class="col-sm-12 col-lg-7 text-center">
-          <div class="cont">
-            <!-- card item -->
-            <div class="greybox text-left">
-              <div class="card_subtitle">ANDROID</div>
-              <div class="card_title">SandevDewthilina/JSON_SQL_Database</div>
-              <p class="card_para">
-                🚀Android, ORM, SQLite & REST API concepts implementation.
-              </p>
-              <p class="card_footer">⭐ JAVA</p>
-            </div>
-            <!-- card item -->
-            <div class="greybox text-left">
-              <div class="card_subtitle">ANDROID</div>
-              <div class="card_title">SandevDewthilina/cloudifi</div>
-              <p class="card_para">
-                ⚡Integration of native android with android jetpack components
-              </p>
-              <p class="card_footer">⭐ JAVA</p>
-            </div>
-            <!-- card item -->
-            <div class="greybox text-left">
-              <div class="card_subtitle">FLUTTER</div>
-              <div class="card_title">SandevDewthilina/ecode</div>
-              <p class="card_para">
-                🤖Mobile application of a student management system. Connecte
-                with REST APIs.
-              </p>
-              <p class="card_footer">⭐ DART</p>
-            </div>
-
-            <!-- awards and honours -->
-            <!-- heading -->
-            <div class="bar"></div>
-            <h5 class="title text-left mt-1 mb-3">Awards & Honours</h5>
-            <div class="row">
-              <!-- left half -->
-              <div class="col-sm-12 col-md-6 col-lg-6 lf">
-                <div class="box greybox">
-                  <div class="box_content text-left ml-2">
-                    <!-- title -->
-                    <div class="card_subtitle mt-2">SCHOLARSHIP</div>
-                    <!-- sub title -->
-                    <p class="card_para">2019 - to date</p>
-                    <!-- heading -->
-                    <p class="box_heading pr-md-3 pr-sm-0">
-                      Mahapola Scholarship By Government Of Sri Lanka
-                    </p>
-                  </div>
-                </div>
-                <div class="box greybox">
-                  <div class="box_content text-left ml-2">
-                    <!-- title -->
-                    <div class="card_subtitle mt-2">AWARD</div>
-                    <!-- sub title -->
-                    <p class="card_para">Colombo District, 2019</p>
-                    <!-- heading -->
-                    <p class="box_heading pr-md-3 pr-sm-0">
-                      District Rank 18th General Certificate Examination A/L
-                    </p>
-                    <div class="paragraph_main">Z Score: 2.7531</div>
-                  </div>
-                </div>
-              </div>
-              <!-- right half -->
-              <div class="col-sm-12 col-md-6 col-lg-6 rf mt-md-5 mt-lg-5">
-                <div class="box greybox">
-                  <div class="box_content text-left ml-2">
-                    <!-- title -->
-                    <div class="card_subtitle mt-2">AWARD</div>
-                    <!-- sub title -->
-                    <p class="card_para">2019</p>
-                    <!-- heading -->
-                    <p class="box_heading pr-md-3 pr-sm-0">
-                      Merit Pass For General Certificate Examination A/L
-                    </p>
-                    <div class="paragraph_main">Physical Science Stream</div>
-                  </div>
-                </div>
-                <div class="box greybox">
-                  <div class="box_content text-left ml-2">
-                    <!-- title -->
-                    <div class="card_subtitle mt-2">AWARD</div>
-                    <!-- sub title -->
-                    <p class="card_para">Colombo Distric, 2016</p>
-                    <!-- heading -->
-                    <p class="box_heading pr-md-3 pr-sm-0">
-                      9 A’s For General Certificate Examination O/L
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <p><span class="command">~$</span> Personal Information</p>
+        <p>- Name: Sandev Dewthilina Kuruppu</p>
+        <p>- Location: Panadura, Sri Lanka</p>
+        <p>- Languages: Sinhala (Native), English (Fluent)</p>
+        <br />
+        <p><span class="command">~$</span> Professional Experience</p>
+        <p>- H2O.ai (DevOps Engineer, Intern), Mountain View, CA | 2023 Nov - to date</p>
+        <p>Cloud administration, Kubernetes, AWS, Terraform</p>
+        <br>
+        <p>- Ecode IT (Co-founder & Full Stack Developer) Panadura, Sri Lanka | 2020 Nov -  2024 Aug</p>
+        <p>HR systems, market research, client-specific solutions</p>
+        <br />
+        <p><span class="command">~$</span> Education</p>
+        <p>
+          - B.Sc. Engineering (Computer Science & Engineering), University of
+          Moratuwa
+        </p>
+        <p>GPA: 3.751/4.0 (First Class)</p>
+        <p>- Advance Level (Physical Science Stream), D.S Senanayake College</p>
+        <p>Z-score: 2.7532</p>
+        <br />
+        <p><span class="command">~$</span> Skills</p>
+        <p>- Backend: .NET Core, Node.js, Flask</p>
+        <p>- Frontend: React.js, Vue.js, Bootstrap</p>
+        <p>- DevOps: AWS, Docker, Kubernetes, Terraform</p>
+        <br />
+        <p><span class="command">~$</span> Projects</p>
+        <table>
+          <tr>
+            <th>Project</th>
+            <th>Description</th>
+            <th>Technologies</th>
+            <th>Ref</th>
+          </tr>
+          <tr>
+            <td>Corporate Profiler</td>
+            <td>
+              Investment Portfolio Allocation via Mathematical Models for CSE Securities. 
+              Multi-agent environment with advance RAG using Knowledge graphs and vector DB.
+              Risk Assessment and statistical analysis using models like Black Littermen and Modern portfolio Theory.
+              Letta, OpenAI, LLM, LangChain, Python, Neo4j, Qdrant, PyPortfolioOpt, Function Calling
+            </td>
+            <td>Python, LangChain, Neo4j, Qdrant, PyPortfolioOpt, OpenAI</td>
+            <td><a href="https://github.com/mist-ai">Click here</a></td>
+          </tr>
+          <tr>
+            <td>Inventory Distribution Route Optimization.
+                Operational Research Asset MVP
+            </td>
+            <td>
+              Use IBM CPLEX Solver to solve the problem with 30 000+ parameters and constraints. Reduced optimization time to 5 minutes.
+              Used Mathematical models to find the optimal route with problem formulation.
+            </td>
+            <td>IBM CPLEX, Python</td>
+            <td><a href="https://github.com/SandevDewthilina/OR-Assets">Click here</a></td>
+          </tr>
+          <tr>
+            <td>Evision Cloud Platform</td>
+            <td>
+              Agent-less integration and cloud monitoring with on-demand system
+              generation.
+            </td>
+            <td>Ansible, Docker, Elasticsearch, Kubernetes</td>
+            <td><a href="https://github.com/SandevDewthilina/ECPMasterNode">Click here</a></td>
+          </tr>
+          <tr>
+            <td>OrphanSafe</td>
+            <td>
+              Microservices-based orphanage management system with
+              authentication and DevOps integration.
+            </td>
+            <td>Node.js, React, RabbitMQ, Docker, ELK Stack</td>
+            <td><a href="https://github.com/SandevDewthilina/OrphanSafe-LInks/tree/main">Click here</a></td>
+          </tr>
+          <tr>
+            <td>Vehicle Inventory Management</td>
+            <td>
+              Managed 140,000+ assets for Outdesk BPO, enhancing asset
+              monitoring and vehicle inventory.
+            </td>
+            <td>Vue.js, MySQL, Azure Blob Storage</td>
+            <td><a href="https://github.com/SandevDewthilina/CarImagesWeb">Click here</a></td>
+          </tr>
+        </table>
+        <p><span class="command">~$</span> Contact</p>
+        <p>- Email: sandevdewthilina2000@gmail.com</p>
+        <p>- LinkedIn: linkedin.com/in/sandev-dewthilina</p>
+        <p>- GitHub: github.com/SandevDewthilina</p>
       </div>
     </div>
   </body>
